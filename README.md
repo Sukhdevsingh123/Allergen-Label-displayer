@@ -8,14 +8,14 @@ A professional full-stack web application designed to help users identify potent
 
 <div align="center">
   <a href="https://allergenlabel2.vercel.app/">
-    <img src="https://github.com/Sukhdevsingh123/Allergen-Label-displayer/tree/main/client/src/assets/1.png" alt="Allergen Label Displayer Screenshot 1" width="800"/>
+    <img src=https://github.com/Sukhdevsingh123/Allergen-Label-displayer/blob/main/client/src/assets/1.png" alt="Allergen Label Displayer Screenshot 1" width="800"/>
   </a>
   <br/><br/>
   <a href="https://allergenlabel2.vercel.app/">
-    <img src="https://github.com/Sukhdevsingh123/Allergen-Label-displayer/tree/main/client/src/assets/2.png" alt="Allergen Label Displayer Screenshot 2" width="800"/>
+    <img src="https://github.com/Sukhdevsingh123/Allergen-Label-displayer/blob/main/client/src/assets/2.png" alt="Allergen Label Displayer Screenshot 2" width="800"/>
   </a>
   <a href="https://allergenlabel2.vercel.app/">
-    <img src="https://github.com/Sukhdevsingh123/Allergen-Label-displayer/tree/main/client/src/assets/3.png" alt="Allergen Label Displayer Screenshot 2" width="800"/>
+    <img src="https://github.com/Sukhdevsingh123/Allergen-Label-displayer/blob/main/client/src/assets/3.png" alt="Allergen Label Displayer Screenshot 2" width="800"/>
   </a>
 </div>
 
