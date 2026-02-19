@@ -15,7 +15,7 @@ A professional full-stack web application designed to help users identify potent
 
 ##  Installation & Running
 
-### 1️⃣ Clone & Navigate to Project
+###  Clone & Navigate to Project
 
 ```bash
 git clone https://github.com/Sukhdevsingh123/Allergen-Label-displayer
@@ -52,7 +52,7 @@ http://localhost:5001
 
 ---
 
-## 🔹 Frontend Setup
+##  Frontend Setup
 
 Open a new terminal:
 
@@ -72,7 +72,7 @@ http://localhost:5173
 
 #  How to Use
 
-### 1️⃣ Upload Excel File
+###  Upload Excel File
 
 - Go to Home page.
 - Click upload area or drag & drop `.xlsx` file.
@@ -106,7 +106,7 @@ http://localhost:5173
 
 ---
 
-# 🛠 2. Technical Solution Explanation
+# Technical Solution Explanation
 
 ##  Architecture Overview
 
