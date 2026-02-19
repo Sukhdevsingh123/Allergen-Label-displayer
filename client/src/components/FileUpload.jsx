@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { RecipeContext } from "../context/RecipeContext";
 import { uploadFile } from "../api/recipeApi";
+import { toast } from "react-hot-toast";
 
 const FileUpload = () => {
   const { setRecipes, setError, setLoading } = useContext(RecipeContext);
@@ -9,7 +10,9 @@ const FileUpload = () => {
   const processFile = async (file) => {
     if (!file) return;
     if (!file.name.endsWith(".xlsx")) {
-      setError("Please upload a valid .xlsx file");
+      const errorMsg = "Please upload a valid .xlsx file";
+      setError(errorMsg);
+      toast.error(errorMsg);
       return;
     }
 
@@ -19,18 +22,22 @@ const FileUpload = () => {
     try {
       setLoading(true);
       setError("");
-      console.log("Uploading file:", file.name);
+      toast.loading("Uploading recipes...", { id: "upload" });
+
       const { data } = await uploadFile(formData);
-      console.log("Upload response:", data);
 
       if (data.recipes && data.recipes.length > 0) {
         setRecipes(data.recipes);
+        toast.success("File uploaded successfully!", { id: "upload" });
       } else {
-        setError("No recipes were found in the file.");
+        const errorMsg = "No recipes were found in the file.";
+        setError(errorMsg);
+        toast.error(errorMsg, { id: "upload" });
       }
     } catch (err) {
       const msg = err.response?.data?.message || err.message || "Upload failed. Please check the file format.";
       setError(msg);
+      toast.error(msg, { id: "upload" });
       console.error("Upload failed:", msg);
     } finally {
       setLoading(false);

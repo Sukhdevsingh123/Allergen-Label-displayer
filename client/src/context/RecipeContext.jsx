@@ -9,6 +9,14 @@ export const RecipeProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const resetState = () => {
+    setRecipes([]);
+    setProcessedData([]);
+    setSelectedRecipe(null);
+    setError("");
+    setLoading(false);
+  };
+
   return (
     <RecipeContext.Provider
       value={{
@@ -21,7 +29,8 @@ export const RecipeProvider = ({ children }) => {
         loading,
         setLoading,
         error,
-        setError
+        setError,
+        resetState
       }}
     >
       {children}

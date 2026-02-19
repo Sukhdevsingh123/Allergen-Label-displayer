@@ -10,13 +10,13 @@ export const parseExcelFile = (filePath) => {
     throw new Error("Excel file is empty");
   }
 
-  // Log keys of the first row to help debug header issues
-  console.log("Excel Headers found:", Object.keys(data[0]));
+ 
+  // console.log("Excel Headers found:", Object.keys(data[0]));
 
   const recipesMap = {};
 
   data.forEach((row, index) => {
-    // Look for headers with case-insensitive matching or common variations
+   
     const recipeNameKey = Object.keys(row).find(k => {
       const normalized = k.toLowerCase().replace(/[\s_]/g, '');
       return normalized === 'recipename' || normalized === 'product' || normalized === 'recipe';
