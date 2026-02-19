@@ -4,76 +4,231 @@ A professional full-stack web application designed to help users identify potent
 
 ---
 
-## 🚀 1. Setup Instructions
+# 🚀 1. Setup Instructions
 
-### Prerequisites
-- **Node.js**: Ensure you have Node.js installed on your system.
-- **npm**: Standard with Node.js.
+## ✅ Prerequisites
 
-### Installation & Running
+- Node.js (v18+ recommended)
+- npm (comes with Node.js)
 
-#### 1. Clone & Setup Project
-Navigate to the project root directory.
+---
 
-#### 2. Setup Backend Server
+## 📦 Installation & Running
+
+### 1️⃣ Clone & Navigate to Project
+
+```bash
+git clone <your-repo-url>
+cd allergen-label-displayer
+```
+
+---
+
+## 🔹 Backend Setup
+
 ```bash
 cd server
 npm install
-# Create a .env file and add ALLERGEN_API_URL=https://task.cover360.co.in/api/allergens
+```
+
+### Create a `.env` file inside `server/` folder:
+
+```
+PORT=5001
+ALLERGEN_API_URL=https://task.cover360.co.in/api/allergens
+```
+
+### Start backend:
+
+```bash
 npm run dev
 ```
-*The server runs on **port 5001**.*
 
-#### 3. Setup Frontend Client
-Open a new terminal window.
+Backend runs at:
+
+```
+http://localhost:5001
+```
+
+---
+
+## 🔹 Frontend Setup
+
+Open a new terminal:
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
-*The client runs on **http://localhost:5173**.*
+
+Frontend runs at:
+
+```
+http://localhost:5173
+```
 
 ---
 
-### How to Use
+#  How to Use
 
-1. **Upload**: On the Home page, click the upload box or drag and drop your `.xlsx` Excel file. The file should have columns like "Recipe Name" (or Product) and "Ingredients".
-2. **Preview**: After a successful upload, you will see a table showing the extracted recipes and their ingredients. You can click **"Change File"** if you need to upload a different one.
-3. **Process**: Click the **"Process Allergens"** button to analyze all recipes.
-4. **View Results**:
-   - Use the **Recipe Selector** dropdown to switch between different recipes.
-   - View the **Allergen Report** displayed in a clean, mono-spaced terminal style.
-   - Use the **"Back" (Return)** arrow icon to go back to the preview table.
+### 1️⃣ Upload Excel File
 
----
-
-## 🛠 2. Solution Explanation
-
-### Technical Approach
-
-- **Backend-First Processing**: I chose to handle Excel parsing and API integration on the backend. This ensures the client remains lightweight and the processing logic is centralized and secure.
-- **Excel Parsing Interface**: Used the `xlsx` library to extract data. I implemented a **Robust Header Matching** logic that handles various column names (e.g., "Recipe Name" vs "Product") and case-insensitivity to make the app user-friendly.
-- **State Management**: Implemented using **React Context API** (`RecipeContext`). This allows seamless state sharing (loading, error, recipe data) between the `FileUpload`, `RecipeTable`, and `AllergenDisplay` components without prop-drilling.
-- **API Integration**: Integrated the external Allergen API. I added defensive measures like **Whitespace Trimming** for ingredients to improve match accuracy.
-- **UI/UX Design**: Built with **Tailwind CSS**. I focused on a "Human-designed professional UI" that includes:
-  - **React Hot Toast**: For immediate feedback on success/error.
-  - **Two-Step Validation**: Allowing users to see what was parsed before hitting the API.
-  - **Modular Architecture**: Clean separation between components, services, and routes.
-- **Routing**: Implemented with `react-router-dom` to provide a scalable foundation for future pages.
-
-### Potential Improvements
-
-- **Scalability**:
-  - Implement **WebSockets** for large file processing to provide real-time row-by-row updates.
-  - Use **Redis** for caching common ingredient results to minimize API calls.
-- **Optimizations**:
-  - Add **Client-side Image Compression** if supporting image-based recipe uploads (OCR).
-  - Implement **Batch Requests** if the external API supports processing multiple ingredients in one call.
-- **UI Enhancements**:
-  - Add **Dark Mode** support using Tailwind's theme system.
-  - Implement a **Dashboard/History** page where users can save and revisit previous analyses.
-  - Add **Export to PDF/Excel** functionality for the generated allergen report.
+- Go to Home page.
+- Click upload area or drag & drop `.xlsx` file.
+- Required columns:
+  - `Recipe Name` (or `Product`)
+  - `Ingredients`
 
 ---
 
-**Developed for Coding Challenge Verification**
+###  Preview Extracted Data
+
+- After upload, a preview table appears.
+- You can verify parsed recipes.
+- Click **"Change File"** to re-upload if needed.
+
+---
+
+###  Process Allergens
+
+- Click **"Process Allergens"**
+- Backend calls external allergen API.
+- Ingredients are analyzed.
+
+---
+
+###  View Allergen Report
+
+- Select recipe from dropdown.
+- Terminal-style allergen report is displayed.
+- Use **Back Arrow** to return to preview.
+
+---
+
+# 🛠 2. Technical Solution Explanation
+
+##  Architecture Overview
+
+This project follows a **clean full-stack architecture**:
+
+Frontend → Backend → External API
+
+---
+
+##  Backend Responsibilities
+
+- Excel file upload handling (Multer)
+- Excel parsing (xlsx)
+- Robust header matching (case-insensitive + flexible naming)
+- Ingredient trimming & normalization
+- External API integration
+- Structured JSON response
+
+---
+
+##  Frontend Responsibilities
+
+- File upload UI
+- Preview table
+- Recipe selector dropdown
+- Terminal-style allergen report
+- State management via React Context API
+
+---
+
+##  Tech Stack
+
+### Backend
+- Node.js
+- Express.js
+- Multer
+- XLSX
+- Axios
+- dotenv
+- CORS
+
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- React Router DOM
+- React Context API
+- React Hot Toast
+
+---
+
+#  UI/UX Highlights
+
+- Clean human-designed professional UI
+- Two-step validation before processing
+- Toast-based feedback system
+- Terminal-style allergen output
+- Responsive layout
+- Modular folder structure
+
+---
+
+
+#  Design Decisions
+
+## Backend-First Processing
+
+- Keeps frontend lightweight
+- Protects API logic
+- Improves scalability
+- Centralized validation
+
+---
+
+## Robust Header Matching
+
+Handles variations like:
+- Recipe Name
+- recipe name
+- PRODUCT
+- product
+
+---
+
+## Defensive Programming
+
+- Ingredient whitespace trimming
+- Empty value filtering
+- Structured error handling
+- Clean API responses
+
+---
+
+#  Potential Improvements
+
+##  Scalability
+
+- WebSockets for real-time processing updates
+- Redis caching for repeated ingredients
+- Rate limiting for API protection
+
+##  Performance Optimizations
+
+- Batch API calls (if supported)
+- Background job queue (BullMQ)
+- Async processing for large files
+
+##  UI Enhancements
+
+- Dark Mode (Tailwind theme)
+- History dashboard
+- Save previous analyses
+- Export to PDF / Excel
+- Drag & drop animation improvements
+
+---
+
+#  Future Enterprise Improvements
+
+- Docker containerization
+- CI/CD pipeline
+- Logging system (Winston / Morgan)
+- Request validation (Joi / Zod)
+- Role-based access (if multi-user)
+
+---
