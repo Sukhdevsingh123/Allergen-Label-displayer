@@ -71,6 +71,48 @@ npm install
 npm run dev
 ```
 
+---
+
+# API Configuration
+
+The frontend supports both **Local Backend** and **Deployed Backend (Render)**.
+
+File location:
+
+```
+client/src/api/recipeApi.js
+```
+---
+
+##  For Local Development
+
+If backend is running on:
+
+```
+http://localhost:5001
+```
+
+Use:
+
+```js
+baseURL: "http://localhost:5001/api/recipes"
+```
+
+---
+
+##  For Production (Render)
+
+Use:
+
+```js
+baseURL: "https://allergen-label-displayer.onrender.com/api/recipes"
+```
+
+---
+
+
+
+
 Frontend runs at:
 
 ```
