@@ -4,27 +4,27 @@ A professional full-stack web application designed to help users identify potent
 
 ---
 
-# 🚀 1. Setup Instructions
+#   Setup Instructions
 
-## ✅ Prerequisites
+##  Prerequisites
 
 - Node.js (v18+ recommended)
 - npm (comes with Node.js)
 
 ---
 
-## 📦 Installation & Running
+##  Installation & Running
 
 ### 1️⃣ Clone & Navigate to Project
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Sukhdevsingh123/Allergen-Label-displayer
 cd allergen-label-displayer
 ```
 
 ---
 
-## 🔹 Backend Setup
+##  Backend Setup
 
 ```bash
 cd server
