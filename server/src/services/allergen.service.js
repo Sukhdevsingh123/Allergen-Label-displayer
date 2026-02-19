@@ -9,7 +9,8 @@ export const processAllergens = async (recipes) => {
     const unrecognized = [];
     const warnings = [];
 
-    for (const ingredient of recipe.ingredients) {
+    for (const rawIngredient of recipe.ingredients) {
+      const ingredient = rawIngredient.trim();
       try {
         const response = await axios.post(ALLERGEN_API, {
           ingredient
