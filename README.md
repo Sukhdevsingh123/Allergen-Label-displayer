@@ -4,6 +4,15 @@ A professional full-stack web application designed to help users identify potent
 
 ---
 
+
+
+#  Live Demo
+
+ **Live Application:**  
+https://allergenlabel2.vercel.app/
+
+---
+
 #   Setup Instructions
 
 ##  Prerequisites

@@ -1,7 +1,11 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5001/api/recipes"
+  //localhost url
+  // baseURL: "http://localhost:5001/api/recipes"
+
+  //render url
+  baseURL: "https://allergen-label-displayer.onrender.com/api/recipes"
 });
 
 export const uploadFile = (formData) =>
